@@ -11,7 +11,7 @@ COPY tools /usr/share/nginx/html
 COPY conf/nginx.conf /etc/nginx/nginx.conf
 
 # Expose ports for HTTP and HTTPS
-# EXPOSE 80 443
+EXPOSE 80 443
 
 # Start NGINX
 CMD ["nginx", "-g", "daemon off;"]
