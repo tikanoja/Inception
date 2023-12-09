@@ -7,20 +7,26 @@ RUN apk update && \
 	apk add --no-cache openssl
 
 # Ensure that we have the correct directory
+# Give rights with -m 775 maybe ?
 RUN mkdir -p /etc/nginx/ssl
 
 # Generate SSL cert & key
 RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
-    -keyout /etc/nginx/ssl/certificate.key \
     -out /etc/nginx/ssl/certificate.crt \
-    -subj "/C=FI/ST=Helsinki/L=Helsinki/O=Ecole42/CN=ttikanoj.42.fr" \
-	#&& adduser -D -H -s /sbin/nologin -g www-data -G www-data www-data
+    -keyout /etc/nginx/ssl/certificate.key \
+    -subj "/C=FI/ST=Helsinki/L=Helsinki/O=Ecole 42/OU=Hive Helsinki/CN=ttikanoj.42.fr"
 
-# Copy the HTML content to NGINX default dir
+# Add a new user within the container
+#RUN adduser -D -H -s /sbin/nologin -g www-data -G www-data www-data
+
+# Copy the HTML content to NGINX default dir for test purposes...
 COPY tools /usr/share/nginx/html
 
 # Copy NGINX configuration to the container
-COPY conf/nginx.conf /etc/nginx/nginx.conf
+COPY ./conf/nginx.conf /etc/nginx/nginx.conf
+
+# Ensure that we have the dir to store PID maybe ?
+# RUN mkdir -p /run/nginx
 
 # Expose ports for HTTP and HTTPS
 EXPOSE 80 443
