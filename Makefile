@@ -28,7 +28,7 @@ remove-ssl:
 all: build-image run-container
 
 # Clean
-clean: stop-container remove-container remove-image remove-ssl
+clean: stop-container remove-image remove-ssl
 
 # Fclean
 fclean: clean
