@@ -2,7 +2,7 @@
 
 # Build images
 build-image:
-	sudo docker build -t my-nginx -f ./srcs/requirements/nginx/Dockerfile .
+	sudo docker build -t my-nginx -f ./srcs/requirements/nginx/Dockerfile ./srcs/requirements/nginx
 
 # Run containers
 run-container:
