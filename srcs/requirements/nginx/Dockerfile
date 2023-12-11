@@ -6,8 +6,8 @@ RUN apk update && \
 	apk add --no-cache nginx && \
 	apk add --no-cache openssl
 
-# Ensure that we have the dir to store PID
-RUN mkdir -p /run/nginx
+# # Ensure that we have the dir to store PID
+# RUN mkdir -p /run
 
 # Ensure that we have the correct directory
 # Give rights with -m 775 maybe ?
