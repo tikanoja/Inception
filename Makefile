@@ -25,12 +25,10 @@ remove-ssl:
 	rm -f /etc/nginx/ssl/certificate.crt /etc/nginx/ssl/certificate.key
 
 # All
-all:
-	build-image run-container
+all: build-image run-container
 
 # Clean
-clean:
-	stop-container remove-container remove-image remove-ssl
+clean: stop-container remove-container remove-image remove-ssl
 
 # Fclean
 fclean: clean
