@@ -9,7 +9,7 @@ services:
     build:
       context: ./requirements/nginx  # Path to your Dockerfile and nginx.conf
       dockerfile: Dockerfile
-      image: nginx-img
+    image: nginx-img:test
     container_name: nginx_cont
     ports:
       - "443:443"
