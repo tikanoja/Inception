@@ -2,23 +2,23 @@
 
 # Build images
 build-image:
-	sudo docker build -t my-nginx -f ./srcs/requirements/nginx/Dockerfile ./srcs/requirements/nginx
+	docker build -t my-nginx -f ./srcs/requirements/nginx/Dockerfile ./srcs/requirements/nginx
 
 # Run containers
 run-container:
-	sudo docker run -d -p 80:80 -p 443:443 --name my-nginx-container my-nginx
+	docker run -d -p 80:80 -p 443:443 --name my-nginx-container my-nginx
 
 # Stop containers
 stop-container:
-	sudo docker stop my-nginx-container
+	docker stop my-nginx-container
 
 # Remove containers
 remove-container:
-	sudo docker rm my-nginx-container
+	docker rm my-nginx-container
 
 # Remove images
 remove-image:
-	sudo docker rmi my-nginx
+	docker rmi my-nginx
 
 # Remove SSL
 remove-ssl:

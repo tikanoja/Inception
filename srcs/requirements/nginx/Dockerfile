@@ -1,7 +1,7 @@
 # Use VM Alpine version as base image
 FROM alpine:3.18.5
 
-# Install NGINX
+# Install NGINX and SSL
 RUN apk update && \
 	apk add --no-cache nginx && \
 	apk add --no-cache openssl
