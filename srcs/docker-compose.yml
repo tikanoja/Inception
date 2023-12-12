@@ -1,0 +1,21 @@
+version: '2.17.3'
+
+# volumes:
+  # mariadb:
+  # wordpress:
+
+services:
+  nginx-serv:
+    build:
+      context: ./requirements/nginx  # Path to your Dockerfile and nginx.conf
+      dockerfile: Dockerfile
+      image: nginx-img
+    container_name: nginx_cont
+    ports:
+      - "443:443"
+    restart: always
+    #networks:
+    #depends on:
+    #volumes:
+
+# Networks:
