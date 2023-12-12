@@ -26,14 +26,14 @@ remove-ssl:
 
 # All
 all:
-	docker-compose -f ./srcs/docker-compose.yml up -d --build
+	docker-compose up -d -f ./srcs/docker-compose.yml
 
 down:
-	docker-compose -f ./srcs/docker-compose.yml down
+	docker-compose down -f ./srcs/docker-compose.yml
 
 # Clean
 clean:
-	docker-compose -f ./srcs/docker-compose.yml down --rmi all -v
+	docker-compose down --rmi all -v -f ./srcs/docker-compose.yml
 
 # Fclean
 fclean: clean
