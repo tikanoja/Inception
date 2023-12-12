@@ -13,7 +13,8 @@ RUN mkdir -p /run/nginx/
 # Give rights with -m 775 maybe ?
 RUN mkdir -p /etc/nginx/ssl/
 
-RUN sudo nginx
+# Make sure nginx is running
+RUN nginx
 
 # Generate SSL cert & key
 RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
