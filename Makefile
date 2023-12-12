@@ -25,10 +25,15 @@ remove-ssl:
 	rm -f /etc/nginx/ssl/certificate.crt /etc/nginx/ssl/certificate.key
 
 # All
-all: build-image run-container
+all:
+	docker-compose -f ./srcs/docker-compose.yml up -d
+
+down:
+	docker-compose -f ./srcs/docker-compose.yml down
 
 # Clean
-clean: stop-container remove-image remove-ssl
+clean:
+	docker-compose -f ./srcs/docker-compose.yml down --rmi all -v
 
 # Fclean
 fclean: clean
