@@ -1,5 +1,9 @@
 # Variables
 
+# All
+all:
+	cd srcs && docker-compose up -d
+	
 # Build images
 build-image:
 	docker build -t my-nginx -f ./srcs/requirements/nginx/Dockerfile ./srcs/requirements/nginx
@@ -24,9 +28,6 @@ remove-image:
 remove-ssl:
 	rm -f /etc/nginx/ssl/certificate.crt /etc/nginx/ssl/certificate.key
 
-# All
-all:
-	cd srcs && docker-compose up -d
 
 down:
 	cd srcs && docker-compose down
