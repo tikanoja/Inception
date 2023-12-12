@@ -6,12 +6,12 @@ RUN apk update && \
 	apk add --no-cache nginx && \
 	apk add --no-cache openssl
 
-# # Ensure that we have the dir to store PID
-# RUN mkdir -p /run
+# Ensure that we have the dir to store PID
+RUN sudo mkdir -p /run/nginx
 
 # Ensure that we have the correct directory
 # Give rights with -m 775 maybe ?
-RUN mkdir -p /etc/nginx/ssl
+RUN sudo mkdir -p /etc/nginx/ssl
 
 # Generate SSL cert & key
 RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
@@ -26,8 +26,7 @@ RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 COPY tools /usr/share/nginx/html
 
 # Copy NGINX configuration to the container
-COPY ./conf/nginx.conf /etc/nginx/nginx.conf
-
+COPY conf/nginx.conf /etc/nginx/nginx.conf
 
 # Expose ports for HTTP and HTTPS
 EXPOSE 80 443
