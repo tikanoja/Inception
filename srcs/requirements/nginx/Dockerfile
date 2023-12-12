@@ -7,11 +7,11 @@ RUN apk update && \
 	apk add --no-cache openssl
 
 # Ensure that we have the dir to store PID
-RUN sudo mkdir -p /run/nginx
+RUN sudo mkdir -p /run/nginx/
 
 # Ensure that we have the correct directory
 # Give rights with -m 775 maybe ?
-RUN sudo mkdir -p /etc/nginx/ssl
+RUN sudo mkdir -p /etc/nginx/ssl/
 
 # Generate SSL cert & key
 RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
