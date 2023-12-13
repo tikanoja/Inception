@@ -18,7 +18,7 @@ RUN apk update && \
 	composer \
 	bash
 
-RUN mkdir -p /run/php/ /var/www/html
+RUN mkdir -p /run/php/ /var/www/html/wordpress/
 
 COPY conf/www.conf /etc/php81/php-fpm.d/www.conf
 
