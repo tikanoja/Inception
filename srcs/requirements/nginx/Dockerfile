@@ -3,8 +3,9 @@ FROM alpine:3.18.5
 
 # Install NGINX and SSL
 RUN apk update && \
-	apk add --no-cache nginx && \
-	apk add --no-cache openssl
+	apk add --no-cache \
+    nginx \
+    openssl
 
 # Ensure that we have the dir to store PID and SSL certs
 RUN mkdir -p /run/nginx/ /etc/nginx/ssl/
