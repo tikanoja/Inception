@@ -26,5 +26,22 @@ wp config create \
 	--dbhost=$WORDPRESS_DB_HOST \
 	--path=/var/www/html/wordpress
 
+# Install WordPress
+wp core install \
+	--url=$DOMAIN_NAME/wordpress \
+	--title=$WP_TITLE \
+	--admin_user=$WP_ADMIN_USR \
+	--admin_password=$WP_ADMIN_PWD \
+	--admin_email=$WP_ADMIN_EMAIL
+
+# Create WordPress user
+wp user create $WP_USR $WP_EMAIL --role=author --user_pass=$WP_PWD
+
+# Install theme for WordPress
+wp theme install inspiro --activate
+
+# Update plugins
+wp plugin update --all
+
 # Fire up PHP-FPM
 php-fpm81 -F
