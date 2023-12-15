@@ -6,6 +6,7 @@ version: '3.8'
   # wordpress:
 
 services:
+
   nginx-serv:
     build:
       context: ./requirements/nginx  # Path to your Dockerfile and nginx.conf
@@ -24,14 +25,15 @@ services:
       context: ./requirements/wordpress/
       dockerfile: Dockerfile
     image: wordpress-img:test
-  container_name: wordpress-cont
-  #add volume
-  ports:
-    - "9000:9000"
-  env_file: .env
-  restart: always
-  # depends_on:
-  #   - mariadb
-  # networks:
-  #   - mynetwork
+    container_name: wordpress-cont
+    #add volume
+    ports:
+      - "9000:9000"
+    env_file: .env
+    restart: always
+    # depends_on:
+    #   - mariadb
+    # networks:
+    #   - mynetwork
+    
 # Networks:
