@@ -29,14 +29,14 @@ wp config create \
 # Install WordPress
 wp core install \
 	--url=$DOMAIN_NAME/wordpress \
-	--title=$WP_TITLE \
-	--admin_user=$WP_ADMIN_USR \
-	--admin_password=$WP_ADMIN_PWD \
-	--admin_email=$WP_ADMIN_EMAIL \
+	--title=$WORDPRESS_TITLE \
+	--admin_user=$WORDPRESS_ADMIN_USER \
+	--admin_password=$WORDPRESS_ADMIN_PASSWORD \
+	--admin_email=$WORDPRESS_ADMIN_EMAIL \
 	--path=/var/www/html/wordpress
 
 # Create WordPress user
-wp user create $WP_USR $WP_EMAIL --role=author --user_pass=$WP_PWD
+wp user create $WORDPRESS_USER $WORDPRESS_EMAIL --role=author --user_pass=$WORDPRESS_PASSWORD
 
 # Install theme for WordPress
 wp theme install inspiro --activate
