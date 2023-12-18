@@ -18,6 +18,11 @@ chown -R www-data:www-data /var/www/html/wordpress
 # Full permissions for owner, read/exec to others
 chmod -R 755 /var/www/html/wordpress
 
+echo "DB Name: $WORDPRESS_DB_NAME"
+echo "DB User: $WORDPRESS_DB_USER"
+echo "DB Password: $WORDPRESS_DB_PASSWORD"
+echo "DB Host: $WORDPRESS_DB_HOST"
+
 # Create WordPress config
 wp config create \
 	--dbname=$WORDPRESS_DB_NAME \
@@ -25,6 +30,8 @@ wp config create \
 	--dbpass=$WORDPRESS_DB_PASSWORD \
 	--dbhost=$WORDPRESS_DB_HOST \
 	--path=/var/www/html/wordpress
+
+echo "CONFIG SUPPOSEDLY CREATED!!!!!!!!!!!"
 
 # Install WordPress
 wp core install \
