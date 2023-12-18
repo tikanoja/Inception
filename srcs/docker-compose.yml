@@ -9,7 +9,6 @@ networks:
   mynetwork:
 
 services:
-
   nginx:
     build:
       context: ./requirements/nginx  # Path to your Dockerfile and nginx.conf
@@ -18,7 +17,7 @@ services:
     container_name: nginx-cont
     ports:
       - "443:443"
-    depends on:
+    depends_on:
       - wordpress
     networks:
       - mynetwork
