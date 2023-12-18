@@ -4,7 +4,7 @@
 cd /var/www/html/wordpress/
 
 # Download WP cli
-wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar -O /usr/local/win/wp
+wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar -O /usr/local/bin/wp
 
 # Make it executable
 chmod +x /usr/local/bin/wp

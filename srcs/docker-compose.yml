@@ -39,6 +39,4 @@ services:
     restart: always
     # depends_on:
     #   - mariadb
-    # networks:
-    #   - mynetwork
     
