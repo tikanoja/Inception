@@ -5,35 +5,41 @@ version: '3.8'
   # mariadb:
   # wordpress:
 
+networks:
+  mynetwork:
+
 services:
 
-  nginx-serv:
+  nginx:
     build:
       context: ./requirements/nginx  # Path to your Dockerfile and nginx.conf
       dockerfile: Dockerfile
-    image: nginx-img:test
+    image: nginx-img
     container_name: nginx-cont
     ports:
       - "443:443"
+    depends on:
+      - wordpress
+    networks:
+      - mynetwork
     restart: always
-    #networks:
-    #depends on:
     #volumes:
 
   wordpress:
     build:
       context: ./requirements/wordpress/
       dockerfile: Dockerfile
-    image: wordpress-img:test
+    image: wordpress-img
     container_name: wordpress-cont
     #add volume
     ports:
       - "9000:9000"
     env_file: .env
+    networks:
+      - mynetwork
     restart: always
     # depends_on:
     #   - mariadb
     # networks:
     #   - mynetwork
     
-# Networks:
