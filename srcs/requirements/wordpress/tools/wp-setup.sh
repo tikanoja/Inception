@@ -31,7 +31,7 @@ wp config create \
 	--dbname=$WORDPRESS_DB_NAME \
 	--dbuser=$WORDPRESS_DB_USER \
 	--dbpass=$WORDPRESS_DB_PASSWORD \
-	--dbhost=$WORDPRESS_DB_HOST \
+	--dbhost=$MYSQL_HOST \
 	--path=/var/www/html/wordpress/
 
 # Install WordPress
