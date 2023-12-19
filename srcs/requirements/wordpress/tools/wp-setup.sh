@@ -1,8 +1,8 @@
 #!/bin/sh
 
 # trying out sleeping
-while ! mariadb -h$MYSQL_HOST -u$WORDPRESS_DB_USER -p$WORDPRESS_DB_PASSWORD $WORDPRESS_DB_NAME &>/dev/null; do
-	echo "Connection to MariaDB failed. Retrying..."
+until mysqladmin ping -h"$MYSQL_HOST" -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" --silent; do
+    echo "MariaDB is unavailable - sleeping"
     sleep 3
 done
 
