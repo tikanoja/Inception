@@ -11,6 +11,6 @@ COPY conf/mariadb-server.cnf /etc/my.cnf.d/mariadb-server.cnf
 RUN chmod 644 /etc/my.cnf.d/mariadb-server.cnf
 
 COPY ./tools/mariadb-setup.sh /
-RUN chmod +x mariadb-setup.dh
+RUN chmod +x mariadb-setup.sh
 
 ENTRYPOINT ["sh", "/mariadb-setup.sh"]
