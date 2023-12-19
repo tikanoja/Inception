@@ -2,9 +2,11 @@
 
 # trying out sleeping
 while ! mariadb -h$MYSQL_HOST -u$WORDPRESS_DB_USER -p$WORDPRESS_DB_PASSWORD $WORDPRESS_DB_NAME &>/dev/null; do
-	echo sleeping
+	echo "Connection to MariaDB failed. Retrying..."
     sleep 3
 done
+
+echo "MariaDB connection established!"
 
 # Set working dir
 cd /var/www/html/wordpress/
