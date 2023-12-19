@@ -13,9 +13,12 @@ chown -R mysql:mysql /var/lib/mysql
 
 # Initializing database (uncomment > /dev/null for more verbose logs)
 mysql_install_db --basedir=/usr --datadir=/var/lib/mysql --user=mysql --rpm #> /dev/null
+echo Database initialized.
 
 # Run SQL setup script
 mysqld --bootstrap --datadir=/var/lib/mysql --user=mysql < ./db-setup.sql
+echo Database configured.
 
 # Start up MariaDB
+echo Starting MariaDB!
 mysqld_safe
