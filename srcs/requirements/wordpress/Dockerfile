@@ -1,10 +1,8 @@
 FROM alpine:3.18.5
 
 # Create user www-data and add to primary and secondary group www-data (create if it doesn't exist)
-# RUN addgroup -S www-data 2>/dev/null || true && \
-# 	adduser -S -G www-data -g www-data www-data
-
-RUN adduser -D -H -s /sbin/nologin -g www-data -G www-data www-data
+RUN addgroup -S www-data 2>/dev/null || true && \
+	adduser -S -G www-data -g www-data www-data
 
 RUN apk update && \
 	apk add --no-cache \
