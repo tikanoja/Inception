@@ -15,7 +15,7 @@ chown -R mysql:mysql /var/lib/mysql
 mysql_install_db --basedir=/usr --datadir=/var/lib/mysql --user=mysql --rpm #> /dev/null
 
 # Run SQL setup script
-mysqld -u root -p"$MYSQL_ROOT_PASSWORD" < ./db-setup.sql
+mysqld --bootstrap --datadir=/var/lib/mysql --user=mysql < ./db-setup.sql
 
 # Start up MariaDB
 mysqld_safe
