@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # trying out sleeping
-until mysqladmin ping -h"$MYSQL_HOST" -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" --silent; do
+until mysql -h"$MYSQL_HOST" -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" -e "SELECT 1" &>/dev/null; do
     echo "MariaDB is unavailable - sleeping"
     sleep 3
 done
