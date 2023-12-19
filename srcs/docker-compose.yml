@@ -2,10 +2,13 @@ version: '3.8'
 
 volumes:
   mariadb-data:
+    name: mariadb:data
   wordpress-data:
+    name: wordpress:data
 
 networks:
   mynetwork:
+    name: mynetwork
 
 services:
   nginx:
