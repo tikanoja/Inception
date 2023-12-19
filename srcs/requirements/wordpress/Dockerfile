@@ -18,6 +18,8 @@ RUN apk update && \
 	composer \
 	bash
 
+EXPOSE 9000
+
 RUN mkdir -p /run/php/ /var/www/html/wordpress/
 
 COPY conf/www.conf /etc/php81/php-fpm.d/www.conf

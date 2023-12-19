@@ -7,6 +7,9 @@ RUN apk update && \
     nginx \
     openssl
 
+# Expose port for HTTPS
+EXPOSE 443
+
 # Ensure that we have the dir to store PID and SSL certs
 RUN mkdir -p /run/nginx/ /etc/nginx/ssl/
 
@@ -25,8 +28,6 @@ COPY tools /usr/share/nginx/html
 # Copy NGINX configuration to the container
 COPY conf/nginx.conf /etc/nginx/nginx.conf
 
-# Expose ports for HTTP and HTTPS
-EXPOSE 443
 
 # Start NGINX
 CMD ["nginx", "-g", "daemon off;"]

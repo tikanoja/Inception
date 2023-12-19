@@ -1,9 +1,8 @@
 version: '3.8'
-# But my docker-compose version is 2.17.3
 
-# volumes:
-  # mariadb:
-  # wordpress:
+volumes:
+  mariadb-data:
+  wordpress-data:
 
 networks:
   mynetwork:
@@ -11,7 +10,7 @@ networks:
 services:
   nginx:
     build:
-      context: ./requirements/nginx  # Path to your Dockerfile and nginx.conf
+      context: ./requirements/nginx
       dockerfile: Dockerfile
     image: nginx-img
     container_name: nginx-cont
@@ -22,7 +21,8 @@ services:
     networks:
       - mynetwork
     restart: always
-    #volumes:
+    volumes:
+      - wordpress-data:/var/www/html
 
   wordpress:
     build:
@@ -30,13 +30,29 @@ services:
       dockerfile: Dockerfile
     image: wordpress-img
     container_name: wordpress-cont
-    #add volume
     ports:
       - "9000:9000"
     env_file: .env
     networks:
       - mynetwork
     restart: always
-    # depends_on:
-    #   - mariadb
-    
+    depends_on:
+      - mariadb
+    volumes:
+      - wordpress-data:/var/www/html
+
+  mariadb:
+    build:
+      context: ./requirements/mariadb
+      dockerfile: Dockerfile
+    image: mariadb-img
+    container_name: mariadb-cont
+    ports:
+      - "3306:3306"
+    env_file: .env
+    restart: always
+    networks:
+      - mynetwork
+    volumes:
+      - db:/var/lib/mysql
+      
