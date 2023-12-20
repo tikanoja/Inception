@@ -31,4 +31,6 @@ COPY conf/nginx.conf /etc/nginx/conf.d/default.conf
 
 
 # Start NGINX
-CMD ["nginx", "-g", "daemon off;"]
+# CMD ["nginx", "-g", "daemon off;"]
+CMD ["nginx", "-c", "/etc/nginx/conf.d/default.conf", "-g", "daemon off;"]
+
