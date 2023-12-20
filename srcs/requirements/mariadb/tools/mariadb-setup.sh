@@ -16,7 +16,7 @@ mysql_install_db --basedir=/usr --datadir=/var/lib/mysql --user=mysql --rpm
 echo Database initialized.
 
 # Run SQL setup script
-/usr/bin/mysqld --bootstrap --user=mysql < db-setup.sql
+mysqld --bootstrap --datadir=/var/lib/mysql --user=mysql < db-setup.sql
 echo Database configured.
 
 # Start up MariaDB

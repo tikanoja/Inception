@@ -21,7 +21,7 @@ chmod +x /usr/local/bin/wp
 wp core download --allow-root
 
 # Transfer ownership recursively to the www-user
-chown -R www-data:www-data /var/www/html/wordpress
+chown -R nginx:nginx /var/www/html/wordpress
 
 # Full permissions for owner, read/exec to others
 chmod -R 755 /var/www/html/wordpress
