@@ -1,4 +1,4 @@
-FROM alpine:3.18.5
+FROM alpine:3.18
 
 # Create user www-data and add to primary and secondary group www-data (create if it doesn't exist)
 RUN addgroup -S nginx && \
