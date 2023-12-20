@@ -1,6 +1,6 @@
 FROM alpine:3.13
 
-# Create user www-data and add to primary and secondary group www-data (create if it doesn't exist)
+# Create user nginx and add to primary and secondary group nginx (create if it doesn't exist)
 RUN addgroup -S nginx && \
 	adduser -S -G nginx -g nginx nginx
 
