@@ -68,5 +68,5 @@ wp theme install inspiro --activate
 # Update plugins
 wp plugin update --all
 
-# Fire up PHP-FPM
-php-fpm7 -nodaemonize
+# Fire up PHP-FPM in terminal (so we can see logs and such...)
+php-fpm82 -nodaemonize
