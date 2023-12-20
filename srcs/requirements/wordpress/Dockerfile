@@ -1,11 +1,11 @@
-FROM alpine:3.13
+FROM alpine:3.18.5
 
 # Create user www-data and add to primary and secondary group www-data (create if it doesn't exist)
 RUN addgroup -S nginx && \
 	adduser -S -G nginx -g nginx nginx
 
 RUN apk update && \
-	apk add --no-cache --quiet --update \
+	apk add --no-cache \
 	php7 \
 	php-fpm \
 	php-cgi \
