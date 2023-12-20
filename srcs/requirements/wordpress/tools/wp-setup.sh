@@ -77,5 +77,5 @@ wp theme install inspiro \
 # Update plugins
 wp plugin update --all
 
-# Fire up PHP-FPM in terminal (so we can see logs and such...)
+# Fire up PHP-FPM in terminal (-F to keep in foreground and avoid recalling script)
 php-fpm81 -F
