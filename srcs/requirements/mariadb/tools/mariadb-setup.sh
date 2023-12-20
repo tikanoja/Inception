@@ -1,5 +1,13 @@
 #!/bin/sh
 
+#!/bin/sh
+
+# Env variables used in script
+echo "MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD"
+echo "WORDPRESS_DB_NAME: $WORDPRESS_DB_NAME"
+echo "WORDPRESS_DB_USER: $WORDPRESS_DB_USER"
+echo "WORDPRESS_DB_PASSWORD: $WORDPRESS_DB_PASSWORD"
+
 if [ ! -d "/run/mysqld" ]; then
 	mkdir -p /run/mysqld
 	chown -R mysql:mysql /run/mysqld
