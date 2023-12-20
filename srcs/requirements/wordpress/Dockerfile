@@ -1,4 +1,4 @@
-FROM alpine:3.13
+FROM alpine:3.18
 
 # Create user nginx and add to primary and secondary group nginx (create if it doesn't exist)
 RUN addgroup -S nginx && \
