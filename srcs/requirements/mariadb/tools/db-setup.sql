@@ -1,10 +1,10 @@
 -- db_setup.sql
 
 -- Specify db to tweak
-USE mysql;
+-- USE mysql;
 
--- Reload priviledge tables
-FLUSH PRIVILEGES;
+-- -- Reload priviledge tables
+-- FLUSH PRIVILEGES;
 
 -- Enforce root w our defined password
 ALTER USER 'root'@'localhost' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}';
