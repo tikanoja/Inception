@@ -35,7 +35,8 @@ down:
 
 # Clean
 clean:
-	cd srcs && docker-compose down --rmi all -v
+	docker-compose -f srcs/docker-compose.yml down --rmi all -v
+	rm -f /etc/nginx/ssl/certificate.crt /etc/nginx/ssl/certificate.key
 
 # Fclean
 fclean: clean
