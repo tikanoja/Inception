@@ -24,7 +24,7 @@ EXPOSE 9000
 
 RUN mkdir -p /run/php/ /var/www/html/wordpress/
 
-COPY conf/www.conf /etc/php7/php-fpm.d/www.conf
+COPY conf/www.conf /etc/php82/php-fpm.d/www.conf
 
 COPY ./tools/wp-setup.sh /
 RUN chmod +x wp-setup.sh
