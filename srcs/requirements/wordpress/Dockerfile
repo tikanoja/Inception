@@ -6,14 +6,14 @@ RUN addgroup -S nginx && \
 
 RUN apk update && \
 	apk add --no-cache \
-	php8.2 \
-	php8.2-fpm \
-	php8.2-cgi \
-	php8.2-phar \
-	php8.2-json \
-	php8.2-mysqli \
-	php8.2-curl \
-	php8.2-iconv \
+	php82 \
+	php82-fpm \
+	php82-cgi \
+	php82-phar \
+	php82-json \
+	php82-mysqli \
+	php82-curl \
+	php82-iconv \
 	curl \
 	wget \
 	composer \
