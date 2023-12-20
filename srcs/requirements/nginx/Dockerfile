@@ -26,8 +26,8 @@ RUN openssl req -newkey rsa:2048 -x509 -sha256 -days 365 -nodes \
 # COPY tools /usr/share/nginx/html
 
 # Copy NGINX configuration to the container
-# COPY conf/nginx.conf /etc/nginx/conf.d/default.conf
-COPY conf/nginx.conf /etc/nginx/nginx.conf
+COPY conf/nginx.conf /etc/nginx/conf.d/default.conf
+# COPY conf/nginx.conf /etc/nginx/nginx.conf
 
 
 # Start NGINX
