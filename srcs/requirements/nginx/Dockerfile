@@ -14,7 +14,7 @@ EXPOSE 443
 RUN mkdir -p /run/nginx /etc/nginx/ssl
 
 # Generate SSL cert & key
-RUN openssl req -newkey -x509 -nodes -days 365 rsa:2048 \
+RUN openssl req -newkey rsa:2048 -x509 -sha256 -days 365 -nodes \
     -out /etc/nginx/ssl/certificate.crt \
     -keyout /etc/nginx/ssl/certificate.key \
     -subj "/C=FI/ST=Helsinki/L=Helsinki/O=Ecole 42/OU=Hive Helsinki/CN=ttikanoj.42.fr"
