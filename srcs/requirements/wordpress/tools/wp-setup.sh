@@ -35,7 +35,7 @@ chmod +x /usr/local/bin/wp
 # Install WP using the CLI
 wp core download --allow-root
 
-# Transfer ownership recursively to the www-user
+# Transfer ownership recursively to the user
 chown -R nginx:nginx /var/www/html/wordpress
 
 # Full permissions for owner, read/exec to others
@@ -68,4 +68,4 @@ wp theme install inspiro --activate
 wp plugin update --all
 
 # Fire up PHP-FPM
-php-fpm81 -F
+php-fpm7 -nodaemonize

@@ -6,24 +6,27 @@ RUN addgroup -S nginx && \
 
 RUN apk update && \
 	apk add --no-cache \
-	php \
+	php7 \
 	php-fpm \
 	php-cgi \
 	php-phar \
 	php-json \
 	php-mysqli \
 	php-curl \
+	php-iconv \
 	curl \
 	wget \
 	composer \
-	bash
+	bash \
+	mariadb-client
 
 EXPOSE 9000
 
 RUN mkdir -p /run/php/ /var/www/html/wordpress/
 
-COPY conf/www.conf /etc/php81/php-fpm.d/www.conf
+COPY conf/www.conf /etc/php7/php-fpm.d/www.conf
 
 COPY ./tools/wp-setup.sh /
 RUN chmod +x wp-setup.sh
+
 ENTRYPOINT ["sh", "/wp-setup.sh"]
