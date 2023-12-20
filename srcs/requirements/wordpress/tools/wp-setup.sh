@@ -58,6 +58,7 @@ wp core install \
 	--admin_password=$WORDPRESS_ADMIN_PASSWORD \
 	--admin_email=$WORDPRESS_ADMIN_EMAIL \
 	--allow-root \
+	--skip-email \
 	--path=/var/www/html/wordpress/
 
 # Create WordPress user
@@ -78,3 +79,5 @@ wp plugin update --all
 
 # Fire up PHP-FPM in terminal (so we can see logs and such...)
 php-fpm81 -nodaemonize
+
+echo "OKAY WE DONE!!!"
