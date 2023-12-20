@@ -47,7 +47,8 @@ wp config create \
 	--dbuser=$WORDPRESS_DB_USER \
 	--dbpass=$WORDPRESS_DB_PASSWORD \
 	--dbhost=$MYSQL_HOST \
-	--path=/var/www/html/wordpress/
+	--path=/var/www/html/wordpress/ \
+	--force #experimental forcing here so check logs...
 
 # Install WordPress
 wp core install \
