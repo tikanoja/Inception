@@ -4,21 +4,27 @@ FROM alpine:3.18.5
 RUN addgroup -S nginx && \
 	adduser -S -G nginx -g nginx nginx
 
-RUN apk update && \
-	apk add --no-cache \
-	php7 \
-	php-fpm \
-	php-cgi \
-	php-phar \
-	php-json \
-	php-mysqli \
-	php-curl \
-	php-iconv \
-	curl \
-	wget \
-	composer \
-	bash \
-	mariadb-client
+# RUN apk update && \
+# 	apk add --no-cache \
+# 	php7 \
+# 	php-fpm \
+# 	php-cgi \
+# 	php-phar \
+# 	php-json \
+# 	php-mysqli \
+# 	php-curl \
+# 	php-iconv \
+# 	curl \
+# 	wget \
+# 	composer \
+# 	bash \
+# 	mariadb-client
+
+RUN		apk update
+RUN		apk add --no-cache --quiet --update curl bash vim
+RUN		apk add --no-cache --quiet --update mariadb-client
+RUN		apk add --no-cache --quiet --update php7 php-phar \
+			php-json php-curl php-fpm php-mysqli php-iconv
 
 EXPOSE 9000
 
