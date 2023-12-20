@@ -11,10 +11,10 @@ RUN apk update && \
 EXPOSE 443
 
 # Ensure that we have the dir to store PID and SSL certs
-RUN mkdir -p /run/nginx/ /etc/nginx/ssl/
+RUN mkdir -p /run/nginx /etc/nginx/ssl
 
 # Generate SSL cert & key
-RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+RUN openssl req -newkey -x509 -nodes -days 365 rsa:2048 \
     -out /etc/nginx/ssl/certificate.crt \
     -keyout /etc/nginx/ssl/certificate.key \
     -subj "/C=FI/ST=Helsinki/L=Helsinki/O=Ecole 42/OU=Hive Helsinki/CN=ttikanoj.42.fr"
@@ -23,11 +23,10 @@ RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 #RUN adduser -D -H -s /sbin/nologin -g www-data -G www-data www-data
 
 # Copy the HTML content to NGINX default dir for test purposes...
-COPY tools /usr/share/nginx/html
+# COPY tools /usr/share/nginx/html
 
 # Copy NGINX configuration to the container
 COPY conf/nginx.conf /etc/nginx/nginx.conf
-
 
 # Start NGINX
 CMD ["nginx", "-g", "daemon off;"]
