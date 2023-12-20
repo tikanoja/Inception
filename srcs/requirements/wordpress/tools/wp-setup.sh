@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # trying out sleeping
-until mariadb -h"$MYSQL_HOST" -u"$WORDPRESS_DB_USER" -p"$WORDPRESS_DB_PASSWORD" -e "SELECT 1" &>/dev/null; do
+while ! mariadb -h$MYSQL_HOST -u$WORDPRESS_DB_USER -p$WORDPRESS_DB_PASSWORD $WORDPRESS_DB_NAME &>/dev/null; do
     echo "MariaDB is unavailable - sleeping"
     sleep 3
 done
