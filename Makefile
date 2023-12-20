@@ -2,6 +2,8 @@
 
 # All
 all:
+	mkdir -p /home/ttikanoj/data/mariadb-data
+	mkdir -p /home/ttikanoj/data/wordpress-data
 	docker-compose -f srcs/docker-compose.yml build
 	docker-compose -f srcs/docker-compose.yml up -d
 	
@@ -12,6 +14,8 @@ clean:
 
 # Fclean
 fclean: clean
+	rm -rf /home/ttikanoj/data/mariadb-data
+	rm -rf /home/ttikanoj/data/wordpress-data
 	docker system prune -f
 
 # Re
