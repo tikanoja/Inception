@@ -45,7 +45,7 @@ EOF
 	# rm -f $tfile
 fi
 
-exec /usr/bin/mysqld --console --defaults-file=/etc/my.cnf.d/my-mariadb-conf.cnf
+exec /usr/bin/mysqld --defaults-file=/etc/my.cnf.d/my-mariadb-conf.cnf --console
 
 # #!/bin/sh
 
