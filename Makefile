@@ -2,11 +2,11 @@
 
 # All
 all:
-	if ! grep -q "ttikanoj.42.fr" /etc/hosts; then
-		echo "127.0.0.1 ttikanoj.42.fr" >> /etc/hosts
+	if ! grep -q "ttikanoj.42.fr" /etc/hosts; then \
+		echo "127.0.0.1 ttikanoj.42.fr" >> /etc/hosts; \
 	fi
-	if ! grep -q "www.ttikanoj.42.fr" /etc/hosts; then
-		echo "127.0.0.1 www.ttikanoj.42.fr" >> /etc/hosts
+	if ! grep -q "www.ttikanoj.42.fr" /etc/hosts; then \
+		echo "127.0.0.1 www.ttikanoj.42.fr" >> /etc/hosts; \
 	fi
 	mkdir -p /home/ttikanoj/data/mariadb-data
 	mkdir -p /home/ttikanoj/data/wordpress-data
