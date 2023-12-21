@@ -1,26 +1,10 @@
 #!/bin/sh
 
-# Env variables used in script
-echo "MYSQL_HOST:               $MYSQL_HOST"
-echo "MYSQL_ROOT_PASSWORD:      $MYSQL_ROOT_PASSWORD"
-echo "WORDPRESS_DB_NAME:        $WORDPRESS_DB_NAME"
-echo "WORDPRESS_DB_USER:        $WORDPRESS_DB_USER"
-echo "WORDPRESS_DB_PASSWORD:    $WORDPRESS_DB_PASSWORD"
-echo "DOMAIN_NAME:              $DOMAIN_NAME"
-echo "WORDPRESS_TITLE:          $WORDPRESS_TITLE"
-echo "WORDPRESS_ADMIN_USER:     $WORDPRESS_ADMIN_USER"
-echo "WORDPRESS_ADMIN_PASSWORD: $WORDPRESS_ADMIN_PASSWORD"
-echo "WORDPRESS_ADMIN_EMAIL:    $WORDPRESS_ADMIN_EMAIL"
-echo "WORDPRESS_USER:           $WORDPRESS_USER"
-echo "WORDPRESS_EMAIL:          $WORDPRESS_EMAIL"
-echo "WORDPRESS_PASSWORD:       $WORDPRESS_PASSWORD"
-
 # trying out sleeping
 while ! mariadb -h$MYSQL_HOST -u$WORDPRESS_DB_USER -p$WORDPRESS_DB_PASSWORD $WORDPRESS_DB_NAME &>/dev/null; do
-    echo "MariaDB is unavailable - sleeping"
-    sleep 3
+    echo "MariaDB unavailable. Trying again in 5 sec."
+    sleep 5
 done
-
 echo "MariaDB connection established!"
 
 # Set working dir
@@ -41,16 +25,16 @@ chown -R nginx:nginx /var/www/html/wordpress
 # Full permissions for owner, read/exec to others
 chmod -R 755 /var/www/html/wordpress
 
-# Create WordPress config
+# Create WordPress database config
 wp config create \
 	--dbname=$WORDPRESS_DB_NAME \
 	--dbuser=$WORDPRESS_DB_USER \
 	--dbpass=$WORDPRESS_DB_PASSWORD \
 	--dbhost=$MYSQL_HOST \
 	--path=/var/www/html/wordpress/ \
-	--force #experimental forcing here so check logs...
+	--force
 
-# Install WordPress
+# Install WordPress and feed db config
 wp core install \
 	--url=$DOMAIN_NAME/wordpress \
 	--title=$WORDPRESS_TITLE \
@@ -81,6 +65,5 @@ wp plugin update --all
 chown -R nginx:nginx /var/www/html/wordpress/wp-content/themes/inspiro/
 chmod -R 755 /var/www/html/wordpress/wp-content/themes/inspiro/
 
-
-# Fire up PHP-FPM in terminal (-F to keep in foreground and avoid recalling script)
+# Fire up PHP-FPM (-F to keep in foreground and avoid recalling script)
 php-fpm81 -F
