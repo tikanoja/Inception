@@ -2,6 +2,12 @@
 
 # All
 all:
+	if ! grep -q "ttikanoj.42.fr" /etc/hosts; then
+		echo "127.0.0.1 ttikanoj.42.fr" >> /etc/hosts
+	fi
+	if ! grep -q "www.ttikanoj.42.fr" /etc/hosts; then
+		echo "127.0.0.1 www.ttikanoj.42.fr" >> /etc/hosts
+	fi
 	mkdir -p /home/ttikanoj/data/mariadb-data
 	mkdir -p /home/ttikanoj/data/wordpress-data
 	docker-compose -f srcs/docker-compose.yml build
@@ -14,6 +20,7 @@ clean:
 
 # Fclean
 fclean: clean
+	sed -i '/ttikanoj\.42\.fr/d' /etc/hosts
 	rm -rf /home/ttikanoj/data/mariadb-data
 	rm -rf /home/ttikanoj/data/wordpress-data
 	docker system prune -f
