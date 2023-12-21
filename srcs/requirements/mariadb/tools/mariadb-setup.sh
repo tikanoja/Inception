@@ -18,7 +18,7 @@ if [ ! -d "/var/lib/mysql/mysql" ]; then
 	# init database
 	mysql_install_db --basedir=/usr --datadir=/var/lib/mysql --user=mysql --rpm > /dev/null
 
-	/usr/bin/mysqld --user=mysql --bootstrap < /tmp/db-setup.sql
+	/usr/bin/mysqld --user=mysql --bootstrap < /tmp/db-init.sql
 	# rm -f $tfile
 fi
 
