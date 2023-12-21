@@ -77,5 +77,10 @@ wp theme install inspiro \
 # Update plugins
 wp plugin update --all
 
+# Example setting permissions for the theme directory
+chown -R nginx:nginx /var/www/html/wordpress/wp-content/themes/inspiro/
+chmod -R 755 /var/www/html/wordpress/wp-content/themes/inspiro/
+
+
 # Fire up PHP-FPM in terminal (-F to keep in foreground and avoid recalling script)
 php-fpm81 -F
