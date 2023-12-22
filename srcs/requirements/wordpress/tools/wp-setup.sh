@@ -6,8 +6,14 @@ while ! mariadb -h$MYSQL_HOST -u$WORDPRESS_DB_USER -p$WORDPRESS_DB_PASSWORD $WOR
     sleep 5
 done
 echo "MariaDB connection established!"
+
+echo "Listing databases:"
 mariadb -h$MYSQL_HOST -u$WORDPRESS_DB_USER -p$WORDPRESS_DB_PASSWORD $WORDPRESS_DB_NAME <<EOF
 SHOW DATABASES;
+EOF
+
+echo "Listing users:"
+mariadb -h$MYSQL_HOST -u$WORDPRESS_DB_USER -p$WORDPRESS_DB_PASSWORD $WORDPRESS_DB_NAME <<EOF
 SELECT User, Host FROM mysql.user;
 EOF
 
@@ -15,7 +21,7 @@ EOF
 cd /var/www/html/wordpress/
 
 # Download WP cli
-wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar -O /usr/local/bin/wp
+wget -q https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar -O /usr/local/bin/wp
 
 # Make it executable
 chmod +x /usr/local/bin/wp
