@@ -63,6 +63,12 @@ wp user create \
 	--user_pass=$WORDPRESS_PASSWORD \
 	--allow-root
 
+# Showing WordPress user after creation
+echo "Showing WordPress user:"
+mariadb -h$MYSQL_HOST -u$WORDPRESS_DB_USER -p$WORDPRESS_DB_PASSWORD $WORDPRESS_DB_NAME <<EOF
+SELECT * FROM mysql.user WHERE User='$WORDPRESS_USER';
+EOF
+
 # Install theme for WordPress
 wp theme install inspiro \
 	--activate \

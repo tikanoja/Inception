@@ -15,7 +15,4 @@ RUN chmod +x /tmp/mariadb-setup.sh
 
 #there was an error of not being able to create log file, check 'docker logs mariadb-cont' if gone now
 
-# COPY ./tools/db-init.sql /tmp/db-init.sql
-# RUN chmod 755 /tmp/db-init.sql
-
 ENTRYPOINT ["sh", "/tmp/mariadb-setup.sh"]
