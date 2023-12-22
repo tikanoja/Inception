@@ -1,11 +1,15 @@
 #!/bin/sh
 
-# trying out sleeping
+# Wait for MariaDB to be ready
 while ! mariadb -h$MYSQL_HOST -u$WORDPRESS_DB_USER -p$WORDPRESS_DB_PASSWORD $WORDPRESS_DB_NAME &>/dev/null; do
     echo "MariaDB unavailable. Trying again in 5 sec."
     sleep 5
 done
 echo "MariaDB connection established!"
+mariadb -h$MYSQL_HOST -u$WORDPRESS_DB_USER -p$WORDPRESS_DB_PASSWORD $WORDPRESS_DB_NAME <<EOF
+SHOW DATABASES;
+SELECT User, Host FROM mysql.user;
+EOF
 
 # Set working dir
 cd /var/www/html/wordpress/
