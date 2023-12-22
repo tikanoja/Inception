@@ -13,6 +13,4 @@ RUN chmod 644 /etc/my.cnf.d/my-mariadb-conf.cnf
 COPY ./tools/mariadb-setup.sh /tmp/mariadb-setup.sh
 RUN chmod +x /tmp/mariadb-setup.sh
 
-#there was an error of not being able to create log file, check 'docker logs mariadb-cont' if gone now
-
 ENTRYPOINT ["sh", "/tmp/mariadb-setup.sh"]

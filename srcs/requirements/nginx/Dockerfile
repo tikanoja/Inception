@@ -22,15 +22,14 @@ RUN openssl req -newkey rsa:2048 -x509 -sha256 -days 365 -nodes \
 # Add a new user within the container
 #RUN adduser -D -H -s /sbin/nologin -g www-data -G www-data www-data
 
-# Copy the HTML content to NGINX default dir for test purposes...
+# Copy test HTML over to the container.
+# If you just started, make nginx serve you this page! :-)
 # COPY tools /usr/share/nginx/html
 
 # Copy NGINX configuration to the container
-# COPY conf/nginx.conf /etc/nginx/conf.d/default.conf
 COPY conf/nginx.conf /etc/nginx/nginx.conf
 RUN chmod 644 /etc/nginx/nginx.conf
 
 # Start NGINX
-# CMD ["nginx", "-g", "daemon off;"]
 CMD ["nginx", "-c", "/etc/nginx/nginx.conf", "-g", "daemon off;"]
 

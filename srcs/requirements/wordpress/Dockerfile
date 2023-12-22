@@ -20,12 +20,13 @@ RUN apk update && \
 	bash \
 	mariadb-client
 
+# Listening port
 EXPOSE 9000
 
+# Create and copy paths and confs to cont
 RUN mkdir -p /run/php/ /var/www/html/wordpress/
 
 COPY conf/www.conf /etc/php81/php-fpm.d/www.conf
-# chmod?
 
 COPY ./tools/wp-setup.sh /
 RUN chmod +x wp-setup.sh

@@ -26,10 +26,10 @@ wget -q https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.pha
 # Make it executable
 chmod +x /usr/local/bin/wp
 
-# Install WP using the CLI
+# DL WP using the CLI
 wp core download --allow-root
 
-# Transfer ownership recursively to the user
+# Transfer ownership to the user
 chown -R nginx:nginx /var/www/html/wordpress
 
 # Full permissions for owner, read/exec to others
