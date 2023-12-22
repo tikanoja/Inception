@@ -36,4 +36,4 @@ cat "$initscript"
 	# rm &initscript
 fi
 
-exec /usr/bin/mysqld --defaults-file=/etc/my.cnf.d/my-mariadb-conf.cnf --console
+exec /usr/bin/mysqld --defaults-file=/etc/my.cnf.d/my-mariadb-conf.cnf

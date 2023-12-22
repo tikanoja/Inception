@@ -12,3 +12,4 @@ character-set-server    = utf8mb4
 collation-server        = utf8mb4_general_ci
 skip-networking         = false
 query_cache_size        = 32M
+console					= true
