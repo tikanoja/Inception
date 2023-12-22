@@ -6,8 +6,6 @@ while ! mariadb -h$MYSQL_HOST -u$WORDPRESS_DB_USER -p$WORDPRESS_DB_PASSWORD $WOR
     sleep 5
 done
 echo "MariaDB connection established!"
-mysql -hlocalhost -uroot -p"$MYSQL_ROOT_PASSWORD" -e "SHOW DATABASES"
-mysql -hlocalhost -uroot -p"$MYSQL_ROOT_PASSWORD" -e "SELECT User, Host FROM mysql.user"
 
 # Set working dir
 cd /var/www/html/wordpress/
