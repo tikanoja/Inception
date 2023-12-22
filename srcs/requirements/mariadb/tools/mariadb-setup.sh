@@ -32,8 +32,8 @@ EOF
 cat "$initscript"
 
 	# Feeding the script to bootstrapped mysql server
-	/usr/bin/mysqld --user=mysql --bootstrap < $initscript
+	mysqld --user=mysql --bootstrap < $initscript
 	# rm &initscript
 fi
 
-exec /usr/bin/mysqld --defaults-file=/etc/my.cnf.d/my-mariadb-conf.cnf
+exec mysqld --defaults-file=/etc/my.cnf.d/my-mariadb-conf.cnf
