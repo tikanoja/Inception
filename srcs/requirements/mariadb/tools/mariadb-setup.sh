@@ -8,8 +8,7 @@ chown -R mysql:mysql /var/lib/mysql
 # init database
 mysql_install_db --basedir=/usr --datadir=/var/lib/mysql --user=mysql --rpm > /dev/null
 
-# Script to remove masking anon user and create ours (credit to malatinipro on Github)
-# https://stackoverflow.com/questions/10299148/mysql-error-1045-28000-access-denied-for-user-billlocalhost-using-passw
+# Enforce root pw, create db and add user
 mysqld --user=mysql --bootstrap << EOF
 USE mysql;
 FLUSH PRIVILEGES;
