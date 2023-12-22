@@ -3,17 +3,14 @@
 # Removed if check here
 mkdir -p /run/mysqld
 chown -R mysql:mysql /run/mysqld
+chown -R mysql:mysql /var/lib/mysql
 
-if [ ! -d "/var/lib/mysql/mysql" ]; then
-	# Transfer ownership to user
-	chown -R mysql:mysql /var/lib/mysql
+# init database
+mysql_install_db --basedir=/usr --datadir=/var/lib/mysql --user=mysql --rpm > /dev/null
 
-	# init database
-	mysql_install_db --basedir=/usr --datadir=/var/lib/mysql --user=mysql --rpm > /dev/null
-
-	# Script to remove masking anon user and create ours (credit to malatinipro on Github)
-	# https://stackoverflow.com/questions/10299148/mysql-error-1045-28000-access-denied-for-user-billlocalhost-using-passw
-	mysqld --user=mysql --bootstrap << EOF
+# Script to remove masking anon user and create ours (credit to malatinipro on Github)
+# https://stackoverflow.com/questions/10299148/mysql-error-1045-28000-access-denied-for-user-billlocalhost-using-passw
+mysqld --user=mysql --bootstrap << EOF
 USE mysql;
 FLUSH PRIVILEGES;
 DELETE FROM	mysql.user WHERE User='';
@@ -26,10 +23,6 @@ CREATE USER '$WORDPRESS_DB_USER'@'%' IDENTIFIED by '$WORDPRESS_DB_PASSWORD';
 GRANT ALL PRIVILEGES ON $WORDPRESS_DB_NAME.* TO '$WORDPRESS_DB_USER'@'%';
 FLUSH PRIVILEGES;
 EOF
-
-	# Feeding the script to bootstrapped mysql server
-	# rm &initscript
-fi
 
 exec mysqld --defaults-file=/etc/my.cnf.d/my-mariadb-conf.cnf
 
