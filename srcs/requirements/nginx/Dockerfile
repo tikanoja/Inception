@@ -19,7 +19,7 @@ RUN openssl req -newkey rsa:2048 -x509 -sha256 -days 365 -nodes \
     -keyout /etc/nginx/ssl/certificate.key \
     -subj "/C=FI/ST=Helsinki/L=Helsinki/O=42/OU=Hive/CN=ttikanoj.42.fr"
 
-Add a new user within the container
+# Add a new user within the container
 RUN adduser -D -H -s /sbin/nologin -g www-data -G www-data www-data
 
 # Copy test HTML over to the container.
