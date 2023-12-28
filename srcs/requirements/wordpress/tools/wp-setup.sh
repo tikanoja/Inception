@@ -31,10 +31,10 @@ chmod +x /usr/local/bin/wp
 wp core download --allow-root
 
 # Transfer ownership to the user
-chown -R nginx:nginx /var/www/html/wordpress
+# chown -R nginx:nginx /var/www/html/wordpress
 
-# Full permissions for owner, read/exec to others
-chmod -R 755 /var/www/html/wordpress
+# # Full permissions for owner, read/exec to others
+# chmod -R 755 /var/www/html/wordpress
 
 # Create WordPress database config
 wp config create \
@@ -72,15 +72,19 @@ wp theme install inspiro \
 # Update plugins
 wp plugin update --all
 
-# Update WP address and sire address to match our domain
-# wp option update siteurl "https://$DOMAIN_NAME" --allow-root
-# wp option update home "https://$DOMAIN_NAME" --allow-root
+# Update WP address and site address to match our domain
+wp option update siteurl "https://$DOMAIN_NAME" --allow-root
+wp option update home "https://$DOMAIN_NAME" --allow-root
 
 # Example setting permissions for the theme directory
-chown -R nginx:nginx /var/www/html/wordpress/wp-content/themes/inspiro/
-chmod -R 755 /var/www/html/wordpress/wp-content/themes/inspiro/
+# chown -R nginx:nginx /var/www/html/wordpress/wp-content/themes/inspiro/
+# chmod -R 755 /var/www/html/wordpress/wp-content/themes/inspiro/
 
-# Transfer ownership to nginx again?
+# Transfer ownership to the user
+chown -R nginx:nginx /var/www/html/wordpress
+
+# Full permissions for owner, read/exec to others
+chmod -R 755 /var/www/html/wordpress
 
 # Fire up PHP-FPM (-F to keep in foreground and avoid recalling script)
 php-fpm81 -F
