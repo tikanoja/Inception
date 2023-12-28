@@ -47,7 +47,7 @@ wp config create \
 
 # Install WordPress and feed db config
 wp core install \
-	--url=$DOMAIN_NAME \
+	--url=$DOMAIN_NAME/wordpress \
 	--title=$WORDPRESS_TITLE \
 	--admin_user=$WORDPRESS_ADMIN_USER \
 	--admin_password=$WORDPRESS_ADMIN_PASSWORD \
