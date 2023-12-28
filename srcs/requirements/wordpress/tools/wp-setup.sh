@@ -4,7 +4,7 @@
 attempts=0
 while ! mariadb -h$MYSQL_HOST -u$WORDPRESS_DB_USER -p$WORDPRESS_DB_PASSWORD $WORDPRESS_DB_NAME &>/dev/null; do
     echo "MariaDB unavailable. Trying again in 5 sec."
-	attempts++
+	$attempts++
 	if [$attempts -ge 12]; then
 		echo "Max attempts reached. MariaDB connection could not be established."
         exit 1
