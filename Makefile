@@ -6,7 +6,7 @@
 #    By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/22 14:17:39 by ttikanoj          #+#    #+#              #
-#    Updated: 2023/12/28 20:48:11 by ttikanoj         ###   ########.fr        #
+#    Updated: 2023/12/28 20:56:05 by ttikanoj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ fclean: clean
 re: fclean all
 
 up:
-	docker-compose -f srcs/docker-compose.yml up
+	docker-compose -f srcs/docker-compose.yml up -d
 
 down:
 	docker-compose -f srcs/docker-compose.yml down
