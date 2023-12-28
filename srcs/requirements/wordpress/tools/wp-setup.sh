@@ -74,8 +74,8 @@ wp theme install inspiro \
 wp plugin update --all
 
 # Update WP address and site address to match our domain
-wp option update siteurl "$DOMAIN_NAME" --allow-root
-wp option update home "$DOMAIN_NAME" --allow-root
+wp option update siteurl "https://$DOMAIN_NAME" --allow-root
+wp option update home "https://$DOMAIN_NAME" --allow-root
 
 # Example setting permissions for the theme directory
 # chown -R nginx:nginx /var/www/html/wordpress/wp-content/themes/inspiro/
