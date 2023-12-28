@@ -26,7 +26,7 @@ services:
     build:
       context: ./requirements/nginx
       dockerfile: Dockerfile
-    image: nginx-img
+    image: nginx-img:release
     container_name: nginx-cont
     ports:
       - "443:443"
@@ -42,7 +42,7 @@ services:
     build:
       context: ./requirements/wordpress/
       dockerfile: Dockerfile
-    image: wordpress-img
+    image: wordpress-img:release
     container_name: wordpress-cont
     ports:
       - "9000:9000"
@@ -59,7 +59,7 @@ services:
     build:
       context: ./requirements/mariadb
       dockerfile: Dockerfile
-    image: mariadb-img
+    image: mariadb-img:release
     container_name: mariadb-cont
     ports:
       - "3306:3306"
