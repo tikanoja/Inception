@@ -30,12 +30,6 @@ chmod +x /usr/local/bin/wp
 # DL WP using the CLI
 wp core download --allow-root
 
-# Transfer ownership to the user
-# chown -R nginx:nginx /var/www/html/wordpress
-
-# # Full permissions for owner, read/exec to others
-# chmod -R 755 /var/www/html/wordpress
-
 # Create WordPress database config
 wp config create \
 	--dbname=$WORDPRESS_DB_NAME \
@@ -46,7 +40,6 @@ wp config create \
 	--force
 
 # Install WordPress and feed db config
-# ADD /wordpress to URL IF NOT GOOD!!!!!
 wp core install \
 	--url=$DOMAIN_NAME \
 	--title=$WORDPRESS_TITLE \
@@ -76,10 +69,6 @@ wp plugin update --all
 # Update WP address and site address to match our domain
 wp option update siteurl "https://$DOMAIN_NAME" --allow-root
 wp option update home "https://$DOMAIN_NAME" --allow-root
-
-# Example setting permissions for the theme directory
-# chown -R nginx:nginx /var/www/html/wordpress/wp-content/themes/inspiro/
-# chmod -R 755 /var/www/html/wordpress/wp-content/themes/inspiro/
 
 # Transfer ownership to the user
 chown -R nginx:nginx /var/www/html/wordpress

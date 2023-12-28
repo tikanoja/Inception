@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+         #
+#    By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/22 14:17:39 by ttikanoj          #+#    #+#              #
-#    Updated: 2023/12/28 10:10:31 by tuukka           ###   ########.fr        #
+#    Updated: 2023/12/28 20:48:11 by ttikanoj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,4 +33,10 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+up:
+	docker-compose -f srcs/docker-compose.yml up
+
+down:
+	docker-compose -f srcs/docker-compose.yml down
+
+.PHONY: all clean fclean re up down
