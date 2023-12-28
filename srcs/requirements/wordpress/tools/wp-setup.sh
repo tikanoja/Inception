@@ -18,16 +18,6 @@ mariadb -h$MYSQL_HOST -u$WORDPRESS_DB_USER -p$WORDPRESS_DB_PASSWORD $WORDPRESS_D
 SHOW DATABASES;
 EOF
 
-echo "Listing users:"
-mariadb -h$MYSQL_HOST -u$WORDPRESS_DB_USER -p$WORDPRESS_DB_PASSWORD $WORDPRESS_DB_NAME <<EOF
-SELECT User, Host FROM mysql.user;
-EOF
-
-echo "TTIKANOJ GRANTS:"
-mariadb -h$MYSQL_HOST -u$WORDPRESS_DB_USER -p$WORDPRESS_DB_PASSWORD $WORDPRESS_DB_NAME <<EOF
-SHOW GRANTS FOR 'ttikanoj'@'%';
-EOF
-
 # Set working dir
 cd /var/www/html/wordpress/
 
