@@ -55,12 +55,12 @@ If you are just getting started on the project, I would suggest you to take thes
 	- You can set up docker compose and Makefile now!
 		- Dont stress about the network for now.
 		- These compose commands will be helpful in your Makefile:
-		| Command                                       | Description                                               |
-		|-----------------------------------------------|-----------------------------------------------------------|
-		| `docker-compose -f srcs/docker-compose.yml build` | Build containers defined in the 'docker-compose.yml' file located at 'srcs/' directory |
-		| `docker-compose -f srcs/docker-compose.yml up -d` | Start containers in detached mode |
-		| `docker-compose -f srcs/docker-compose.yml down --rmi all -v` | Stop and remove containers, networks, volumes, and associated images |
-		| `docker system prune -f`           | Remove all unused containers, networks, images, and volumes. |
+			| Command                                                       | Description                                                                            |
+			|---------------------------------------------------------------|----------------------------------------------------------------------------------------|
+			| `docker-compose -f srcs/docker-compose.yml build`             | Build containers defined in the 'docker-compose.yml' file located at 'srcs/' directory |
+			| `docker-compose -f srcs/docker-compose.yml up -d`             | Start containers in detached mode                                                      |
+			| `docker-compose -f srcs/docker-compose.yml down --rmi all -v` | Stop and remove containers, networks, volumes, and associated images                   |
+			| `docker system prune -f`                                      | Remove all unused containers, networks, images, and volumes                            |
 	- Create your `.env` file.
 	- Learn to use `docker exec -it <container_name_or_id> <command>` to confirm that you have created a new database in MariaDB.
 	- Make sure that your containers run error free by running `docker logs <container_name_or_id>`
@@ -70,4 +70,3 @@ If you are just getting started on the project, I would suggest you to take thes
 	- Make sure that the container network is configured correctly.
 	- Configure Nginx to pass the PHP requests to your WordPress container via FastCGI.
 	- You can access the Wordpress admin login on `login.42.fr/wp-admin`
-	
