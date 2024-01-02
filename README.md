@@ -18,13 +18,15 @@ The `Inception` project is an exercise of configuring services.
 | WordPress | Content Management System used to create and manage website content.                |
 | MariaDB   | Relational Database Management System serving as the backend database for WordPress.|
 
+<img src="imgs/inception2.png" width="80%" align="center">
+
 ## Roadmap
 
 If you are just getting started on the project, I would suggest you to take these steps!
 
 1. Set up your Virtual Machine
 	- If you are a 42 student, chances are you already have VirtualBox on school Macs.
-	- If you running Apple silicon, UTM is a good alternative! (Docker compose might take a while though...)
+	- If your computer is running Apple silicon, UTM is a good alternative! (Docker compose might take a while though...)
 	- I chose Alpine with Xfce as the host OS.
 	- Install Docker and Docker Compose.
 
