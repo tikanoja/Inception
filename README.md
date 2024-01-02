@@ -10,11 +10,20 @@
 
 ## Description
 
-The `Inception` project is an exercise of configuring services. It involves the following components:
+The `Inception` project is an exercise of configuring services.
 
-- **aaaa**: aaaaaa
-- **bbbb**: bbbbbb
-- **cccc**: cccccc
-- **dddd**: dddddd
++------------+-------------------------------------------+
+| Service    | Description                               |
++------------+-------------------------------------------+
+| Nginx      | Web server responsible for serving web     |
+|            | content and handling HTTPS connections.    |
++------------+-------------------------------------------+
+| WordPress  | Content Management System (CMS) used to    |
+|            | create and manage website content.         |
++------------+-------------------------------------------+
+| MariaDB    | Relational Database Management System     |
+|            | (RDBMS) serving as the backend database   |
+|            | for WordPress.                            |
++------------+-------------------------------------------+
 
 ## Roadmap
