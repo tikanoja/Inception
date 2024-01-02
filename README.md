@@ -12,18 +12,10 @@
 
 The `Inception` project is an exercise of configuring services.
 
-+------------+-------------------------------------------+
-| Service    | Description                               |
-+------------+-------------------------------------------+
-| Nginx      | Web server responsible for serving web    |
-|            | content and handling HTTPS connections.   |
-+------------+-------------------------------------------+
-| WordPress  | Content Management System (CMS) used to   |
-|            | create and manage website content.        |
-+------------+-------------------------------------------+
-| MariaDB    | Relational Database Management System     |
-|            | (RDBMS) serving as the backend database   |
-|            | for WordPress.                            |
-+------------+-------------------------------------------+
+| Service   | Description                                                                         |
+|-----------|-------------------------------------------------------------------------------------|
+| Nginx     | Web server responsible for serving web content and handling HTTPS connections.      |
+| WordPress | Content Management System used to create and manage website content.                |
+| MariaDB   | Relational Database Management System serving as the backend database for WordPress.|
 
 ## Roadmap
